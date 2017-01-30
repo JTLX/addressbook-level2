@@ -13,7 +13,7 @@ import seedu.addressbook.data.person.PostalCode;
 public class Address {
 
     public static final String EXAMPLE = "123, some street";
-    public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
+    public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses must contain block, street, unit and postal code";
     public static final String ADDRESS_VALIDATION_REGEX = ".+,.+,.+,.+";
     public static final String ADDRESS_SPLIT_REGEX = ",";
     
