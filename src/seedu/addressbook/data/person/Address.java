@@ -16,7 +16,15 @@ public class Address {
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
     public static final String ADDRESS_VALIDATION_REGEX = ".+";
 
+    public static final String ADDRESS_SPLIT_REGEX = ",";
+    
     public final String value;
+    
+    private final Block block;
+    private final Street street;
+    private final Unit unit;
+    private final PostalCode postalCode;
+    
     private boolean isPrivate;
 
     /**
@@ -31,6 +39,12 @@ public class Address {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         }
         this.value = trimmedAddress;
+        
+        String[] fields = trimmedAddress.split(ADDRESS_SPLIT_REGEX);
+        block = new Block(fields[0].trim());
+        street = new Street(fields[1].trim());
+        unit = new Unit(fields[2].trim());
+        postalCode = new PostalCode(fields[3].trim());
     }
 
     /**
