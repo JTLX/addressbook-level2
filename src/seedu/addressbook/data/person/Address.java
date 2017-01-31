@@ -17,6 +17,12 @@ public class Address {
     public static final String ADDRESS_VALIDATION_REGEX = ".+,.+,.+,.+";
     public static final String ADDRESS_SPLIT_REGEX = ",";
     
+
+    private static final int ADDRESS_BLOCK_INDEX = 0;
+    private static final int ADDRESS_STREET_INDEX = 1;
+    private static final int ADDRESS_UNIT_INDEX = 2;
+    private static final int ADDRESS_POSTALCODE_INDEX = 3;
+
     public final String value;
     
     private final Block block;
@@ -40,10 +46,10 @@ public class Address {
         this.value = trimmedAddress;
         
         String[] fields = trimmedAddress.split(ADDRESS_SPLIT_REGEX);
-        block = new Block(fields[0].trim());
-        street = new Street(fields[1].trim());
-        unit = new Unit(fields[2].trim());
-        postalCode = new PostalCode(fields[3].trim());
+        block = new Block(fields[ADDRESS_BLOCK_INDEX].trim());
+        street = new Street(fields[ADDRESS_STREET_INDEX].trim());
+        unit = new Unit(fields[ADDRESS_UNIT_INDEX].trim());
+        postalCode = new PostalCode(fields[ADDRESS_POSTALCODE_INDEX].trim());
     }
 
     /**
