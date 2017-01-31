@@ -122,7 +122,7 @@ public class TextUi {
     public void showResultToUser(CommandResult result) {
         final Optional<List<? extends ReadOnlyPerson>> resultPersons = result.getRelevantPersons();
         if (resultPersons.isPresent()) {
-            showPersonListView(resultPersons.get());
+            Formatter.showPersonListView(resultPersons.get(), this);
         }
         showToUser(result.feedbackToUser, DIVIDER);
     }
