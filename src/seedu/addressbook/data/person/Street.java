@@ -1,5 +1,8 @@
 package seedu.addressbook.data.person;
 
+/**
+ * Stores the street field of an Address
+ */
 public class Street {
 	private String street;
 	
