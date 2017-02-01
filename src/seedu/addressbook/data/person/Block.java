@@ -4,13 +4,13 @@ package seedu.addressbook.data.person;
  * Stores the block field of an Address
  */
 public class Block {
-	private String block;
-	
-	public Block(String block) {
-		this.block = block;
-	}
-	
-	public String getBlock() {
-		return this.block;
-	}
+    private String block;
+
+    public Block(String block) {
+        this.block = block;
+    }
+
+    public String getBlock() {
+        return this.block;
+    }
 }
