@@ -151,4 +151,12 @@ public class AddressBook {
                         && this.allPersons.equals(((AddressBook) other).allPersons)
                         && this.allTags.equals(((AddressBook) other).allTags));
     }
+
+    public String printAllTaggings() {
+        String resultString = "";
+        for(Tagging tagging : taggings) {
+            resultString += tagging.toString() + "\n";
+        }
+        return resultString;
+    }
 }
