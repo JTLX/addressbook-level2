@@ -32,6 +32,10 @@ public class UtilsTest {
         assertTrue(Utils.isAnyNull("", new Object(), null));
         assertTrue(Utils.isAnyNull(new Object(), new Object(), null));
 
+        // non empty list where all elements are null
+        assertTrue(Utils.isAnyNull(null, null));
+        assertTrue(Utils.isAnyNull(null, null, null));
+
         // confirms nulls inside the list are not considered
         List<Object> nullList = Arrays.asList((Object) null);
         assertFalse(Utils.isAnyNull(nullList));
@@ -60,6 +64,11 @@ public class UtilsTest {
         assertNotUnique(null, 1, new Integer(1));
         assertNotUnique(null, null);
         assertNotUnique(null, "a", "b", null);
+
+        // all identical objects
+        assertNotUnique("abc", "abc", "abc");
+        assertNotUnique(1, 1 ,1);
+
     }
 
     private void assertAreUnique(Object... objects) {
