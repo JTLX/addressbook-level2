@@ -65,7 +65,7 @@ public class Name {
      * Two names are considered similar if one of them is a subset of the other (case-insensitive)
      */
     public boolean isSimilar(Name other) {
-
+        return this.fullName.toString().equals(other.toString());
     }
 
 }
