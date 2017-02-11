@@ -25,7 +25,7 @@ public class NameTest {
         assertFalse(name2.isSimilar(name1));
 
         name1 = new Name("John Doe");
-        name2 = new Name("John Do");
+        name2 = new Name("Johnny Do");
         assertFalse(name1.isSimilar(name2));
         assertFalse(name2.isSimilar(name1));
     }
@@ -44,7 +44,7 @@ public class NameTest {
 
 
         name1 = new Name("jon doe");
-        name2 = new Name("jon do");
+        name2 = new Name("johnny do");
         assertFalse(name1.isSimilar(name2));
         assertFalse(name2.isSimilar(name1));
     }
