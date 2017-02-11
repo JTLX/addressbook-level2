@@ -49,4 +49,22 @@ public class NameTest {
         assertFalse(name2.isSimilar(name1));
     }
 
+    @Test
+    public void subsetNames() throws IllegalValueException {
+        Name name1 = new Name("John");
+        Name name2 = new Name("JOhN doe");
+        assertTrue(name1.isSimilar(name2));
+        assertTrue(name2.isSimilar(name1));
+
+
+        name1 = new Name("john doe jane");
+        name2 = new Name("JOHN");
+        assertTrue(name1.isSimilar(name2));
+        assertTrue(name2.isSimilar(name1));
+
+        name1 = new Name("john doe jane");
+        name2 = new Name("joh");
+        assertFalse(name1.isSimilar(name2));
+        assertFalse(name2.isSimilar(name1));
+    }
 }
