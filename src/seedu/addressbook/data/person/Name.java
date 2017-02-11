@@ -2,8 +2,7 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Represents a Person's name in the address book.
@@ -14,6 +13,7 @@ public class Name {
     public static final String EXAMPLE = "John Doe";
     public static final String MESSAGE_NAME_CONSTRAINTS = "Person names should be spaces or alphabetic characters";
     public static final String NAME_VALIDATION_REGEX = "[\\p{Alpha} ]+";
+    public static final String NAME_SPLIT_REGEX = "[,\\s]";
     public final String fullName;
 
     /**
@@ -70,8 +70,15 @@ public class Name {
 
         String thisNameLowercase = thisName.toLowerCase();
         String otherNameLowercase = otherName.toLowerCase();
-        
-        return thisNameLowercase.equals(otherNameLowercase);
+
+        String[] thisNameSplit = thisNameLowercase.split(NAME_SPLIT_REGEX);
+        String[] otherNameSplit = otherNameLowercase.split(NAME_SPLIT_REGEX);
+
+        Set<String> thisNameSet = new HashSet<>(Arrays.asList(thisNameSplit));
+        Set<String> otherNameSet = new HashSet<>(Arrays.asList(otherNameSplit));
+
+        return thisNameLowercase.equals(otherNameLowercase)
+                || !Collections.disjoint(thisNameSet, otherNameSet);
     }
 
 }
